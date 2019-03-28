@@ -40,8 +40,9 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
               text = entree.getText();
               fahrenheitTemp = Integer.parseInt(text);
               celciusTemp =(int)fahrenheitEnCelsius(fahrenheitTemp);
+              
                     text = Integer.toString (celciusTemp);
-                  sortie.setText( Float.toString(celciusTemp));}
+                   sortie.setText( Float.toString(celciusTemp));}
                   
                   
     }catch(NumberFormatException nfe){
@@ -50,7 +51,9 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
   }
   public static float fahrenheitEnCelsius( int entree){
        float resultat = (float)5/9 * (entree-32);
-	        return ((int)(resultat*10))/10.0f;
+       if (resultat < -273.1f) resultat = -273.1f;
+	return (resultat*10)/10.0f;
+	        
 	}
   
   
